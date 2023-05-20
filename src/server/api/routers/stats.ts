@@ -7,7 +7,7 @@ import {
 
 export const statsRouter = createTRPCRouter({
 
-  getStats: publicProcedure.query(({ ctx }) => {
+  getStats: protectedProcedure.query(({ ctx }) => {
     return ctx.prisma.dryck.findUnique({
       where: {
         id: ctx.session?.user.id
