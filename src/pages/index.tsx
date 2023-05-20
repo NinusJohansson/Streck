@@ -20,7 +20,6 @@ const Home: NextPage = () => {
     cider = stats.data?.cider
     sprit = stats.data?.sprit
   }
-  Promise.reject(void).catch(() => {});
 
   function handleClickcider(e: React.MouseEvent<HTMLButtonElement>): void {
     e.preventDefault()
