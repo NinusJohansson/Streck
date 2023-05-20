@@ -17,6 +17,8 @@ const Home: NextPage = () => {
   function updatestat(): void{
     stats.refetch()
     ohl = stats.data?.ohl
+    cider = stats.data?.cider
+    sprit ? stats.data?.sprit
   }
   
   function handleClickcider(e: React.MouseEvent<HTMLButtonElement>) {
