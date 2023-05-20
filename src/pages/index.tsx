@@ -3,21 +3,37 @@ import { type NextPage } from "next";
 import { api } from "~/utils/api";
 import { Button } from "~/components/Button";
 import { useSession } from "next-auth/react";
+import { stat } from "fs";
 
 const Home: NextPage = () => {
 
   function handleClickohl(e: React.MouseEvent<HTMLButtonElement>) {
-    ohlbutton.mutate()
+    e.preventDefault()
+    ohlbutton.mutate();
+    setTimeout(() => {
+      updatestat()
+    },100)
+  }
+
+  function updatestat(): void{
+    stats.refetch()
+    ohl = stats.data?.ohl
   }
   
   function handleClickcider(e: React.MouseEvent<HTMLButtonElement>) {
-  
+    e.preventDefault()
     ciderbutton.mutate()
+    setTimeout(() => {
+      updatestat()
+    },100)
   }
   
   function handleClicksprit(e: React.MouseEvent<HTMLButtonElement>) {
-  
+    e.preventDefault()
     spritbutton.mutate()
+    setTimeout(() => {
+      updatestat()
+    },100)
   }
 
   const stats = api.stats.getStats.useQuery()
@@ -26,12 +42,16 @@ const Home: NextPage = () => {
   const spritbutton = api.spritbutton.spritpress.useMutation()
   const session = useSession()
   const user = session.data?.user
+
+  var ohl = stats.data?.ohl
+  var cider = stats.data?.cider
+  var sprit = stats.data?.sprit
   return (
     <>
-      <header className="sticky flex justify-center top-0 z-10 border-b-2 border-slate-500 h-23 items-center gap-10">
+      <header className="sticky flex justify-center top-0 z-10 border-b-2 border-slate-500 h-fill items-center gap-10 mx-4 py-8">
       {user != null && (<>
         <p className="">Dina Stats</p>
-        <p className="gap-1"> Ohl  {stats.data?.ohl}  Cider  {stats.data?.cider}  Sprit  {stats.data?.sprit}</p>
+        <p className="gap-1"> Ohl  {ohl}  Cider  {cider}  Sprit  {sprit}</p>
         </>
       )}
       </header>

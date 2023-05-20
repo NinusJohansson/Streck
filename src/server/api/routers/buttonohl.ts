@@ -7,7 +7,7 @@ import {
 
 export const buttonohlRouter = createTRPCRouter({
   ohlpress: protectedProcedure.mutation(({ ctx }) => {
-    return ctx.prisma.dryck.update({
+    return ctx.prisma.user.update({
       where: {
         id: ctx.session?.user.id
       },
@@ -23,7 +23,7 @@ export const buttonohlRouter = createTRPCRouter({
 export const buttonciderRouter = createTRPCRouter({
   ciderpress: protectedProcedure
   .mutation(async ({ ctx }) => {
-    return ctx.prisma.dryck.update({
+    return ctx.prisma.user.update({
       where: {
         id: ctx.session?.user.id
       },
@@ -40,7 +40,7 @@ export const buttonciderRouter = createTRPCRouter({
 export const buttonspritRouter = createTRPCRouter({
   spritpress: protectedProcedure
   .mutation(async ({ ctx }) => {
-    return ctx.prisma.dryck.update({
+    return ctx.prisma.user.update({
       where: {
         id: ctx.session?.user.id
       },
@@ -50,5 +50,5 @@ export const buttonspritRouter = createTRPCRouter({
         }
       }
     });
-    })
+    }),
 });
