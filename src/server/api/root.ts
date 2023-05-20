@@ -1,6 +1,6 @@
 import { createTRPCRouter } from "~/server/api/trpc";
 import { statsRouter } from "~/server/api/routers/stats";
-import { buttonciderRouter, buttonohlRouter, buttonspritRouter, incDryck } from "./routers/buttonohl";
+import { buttonciderRouter, buttonohlRouter, buttonspritRouter } from "./routers/buttonohl";
 
 /**
  * This is the primary router for your server.
@@ -12,7 +12,6 @@ export const appRouter = createTRPCRouter({
   button: buttonohlRouter,
   ciderbutton: buttonciderRouter,
   spritbutton: buttonspritRouter,
-  updateuser: incDryck,
 });
 
 // export type definition of API
