@@ -38,7 +38,7 @@ const Home: NextPage = () => {
   }
 
   const stats = api.stats.getStats.useQuery()
-  const ohlbutton = api.button.ohlpress.useMutation({})
+  const ohlbutton = api.button.ohlpress.useMutation()
   const ciderbutton = api.ciderbutton.ciderpress.useMutation()
   const spritbutton = api.spritbutton.spritpress.useMutation()
   const session = useSession()
