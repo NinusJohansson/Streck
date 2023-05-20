@@ -9,6 +9,9 @@ const config = {
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
       ],
       files: ["*.ts", "*.tsx"],
+      rules:{
+        "@typescript-eslint/no-empty-function": "off"
+      },
       parserOptions: {
         project: path.join(__dirname, "tsconfig.json"),
       },
@@ -31,6 +34,7 @@ const config = {
     ],
     "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
   },
+  
 };
 
 module.exports = config;
