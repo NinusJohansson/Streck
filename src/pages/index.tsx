@@ -28,15 +28,17 @@ const Home: NextPage = () => {
   const user = session.data?.user
   return (
     <>
-      <header className="sticky flex justify-center top-0 z-10 border-b-2 border-b-fuchsia-600 bg-white mb-8">
+      <header className="sticky flex justify-center top-0 z-10 border-b-2 border-slate-500 h-23 items-center gap-10">
       {user != null && (<>
-        <h1 className="mb-2 px-4 text-lg">Dina Stats</h1>
-        <p> Ohl  {stats.data?.ohl}  Cider  {stats.data?.cider}  Sprit  {stats.data?.sprit}</p>
+        <p className="">Dina Stats</p>
+        <p className="gap-1"> Ohl  {stats.data?.ohl}  Cider  {stats.data?.cider}  Sprit  {stats.data?.sprit}</p>
         </>
       )}
       </header>
-      <div className="flex justify-center">
-        <form className="flex flex-col justify-center">
+  
+
+      <div className="flex justify-center h-screen">
+        <form className="flex flex-col justify-center w-4/6 h-full gap-8">
           <Button className="self-center" onClick={handleClickohl}>Øhl</Button>
           <Button className="self-center" onClick={handleClickcider}>Cider</Button>
           <Button className="self-center" onClick={handleClicksprit}>Sprit</Button>
