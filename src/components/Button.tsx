@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
 
 
 type ButtonProps = {
-    className?: String
+    className?: string
 } & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 
 export function Button({className = "", ...props }: 
