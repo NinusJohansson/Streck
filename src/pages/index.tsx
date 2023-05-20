@@ -8,14 +8,14 @@ const Home: NextPage = () => {
 
   function handleClickohl(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault()
-    ohlbutton.mutate();
+    ohlbutton.mutate()
     setTimeout(() => {
       updatestat()
     }, 100)
   }
 
   function updatestat(): void {
-    stats.refetch()
+    stats.refetch().then(() => {});
     ohl = stats.data?.ohl
     cider = stats.data?.cider
     sprit = stats.data?.sprit
