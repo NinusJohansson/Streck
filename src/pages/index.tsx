@@ -3,7 +3,6 @@ import { type NextPage } from "next";
 import { api } from "~/utils/api";
 import { Button } from "~/components/Button";
 import { useSession } from "next-auth/react";
-import { stat } from "fs";
 
 const Home: NextPage = () => {
 
@@ -43,9 +42,9 @@ const Home: NextPage = () => {
   const session = useSession()
   const user = session.data?.user
 
-  var ohl = stats.data?.ohl
-  var cider = stats.data?.cider
-  var sprit = stats.data?.sprit
+  let ohl = stats.data?.ohl
+  let cider = stats.data?.cider
+  let sprit = stats.data?.sprit
   return (
     <>
       <header className="sticky flex justify-center top-0 z-10 border-b-2 border-slate-500 h-fill items-center gap-10 mx-4 py-8">
