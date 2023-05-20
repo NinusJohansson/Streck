@@ -7,23 +7,17 @@ import { useSession } from "next-auth/react";
 const Home: NextPage = () => {
 
   function handleClickohl(e: React.MouseEvent<HTMLButtonElement>) {
-    e.preventDefault();
     ohlbutton.mutate()
-    stats.refetch
   }
   
   function handleClickcider(e: React.MouseEvent<HTMLButtonElement>) {
-    e.preventDefault();
   
     ciderbutton.mutate()
-    stats.refetch
   }
   
   function handleClicksprit(e: React.MouseEvent<HTMLButtonElement>) {
-    e.preventDefault();
   
     spritbutton.mutate()
-    stats.refetch
   }
 
   const stats = api.stats.getStats.useQuery()
