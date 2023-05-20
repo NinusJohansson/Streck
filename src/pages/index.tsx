@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 
 const Home: NextPage = () => {
 
-  function handleClickohl(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleClickohl(e: React.MouseEvent<HTMLButtonElement>): void {
     e.preventDefault()
     ohlbutton.mutate()
     setTimeout(() => {
@@ -15,11 +15,12 @@ const Home: NextPage = () => {
   }
 
   function updatestat(): void {
-    stats.refetch().then(() => {});
+    stats.refetch().then(() => {},() => {});
     ohl = stats.data?.ohl
     cider = stats.data?.cider
     sprit = stats.data?.sprit
   }
+  Promise.reject(void).catch(() => {});
 
   function handleClickcider(e: React.MouseEvent<HTMLButtonElement>): void {
     e.preventDefault()
@@ -29,7 +30,7 @@ const Home: NextPage = () => {
     }, 100)
   }
 
-  function handleClicksprit(e: React.MouseEvent<HTMLButtonElement>) {
+  function handleClicksprit(e: React.MouseEvent<HTMLButtonElement>): void {
     e.preventDefault()
     spritbutton.mutate()
     setTimeout(() => {
