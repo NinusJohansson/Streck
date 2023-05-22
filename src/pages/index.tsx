@@ -14,9 +14,9 @@ const Home: NextPage = () => {
     const session = useSession()
     const user = session.data?.user
   
-    let ohldb = stats.data?.ohl
-    let ciderdb = stats.data?.cider
-    let spritdb = stats.data?.sprit
+    const ohldb = stats.data?.ohl
+    const ciderdb = stats.data?.cider
+    const spritdb = stats.data?.sprit
     const [ohl, ohlcount] = useState(0)
     const [cider, cidercount] = useState(0)
     const [sprit, spritcount] = useState(0)
