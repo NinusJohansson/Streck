@@ -40,7 +40,7 @@ const Home: NextPage = () => {
     spritbutton.mutate(sprit)
     setTimeout(() => {
       updatestat()
-    }, 1000)
+    }, 500)
     ohlcount(0);
     cidercount(0);
     spritcount(0);
