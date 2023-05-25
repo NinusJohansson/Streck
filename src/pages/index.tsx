@@ -4,6 +4,7 @@ import { api } from "~/utils/api";
 import { Button } from "~/components/Button";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
+import { SideNav } from "~/components/SideNav";
 
 const Home: NextPage = () => {
   
@@ -49,31 +50,32 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <header className="sticky flex justify-center top-0 z-10 border-b-2 border-slate-500 h-fill items-center gap-10 mx-4 py-8">
+      <header className="sticky flex justify-center top-0 z-10 border-b-2 border-slate-500 h-fill items-center gap-10 mx-4">
+      <SideNav />  
         {user != null && (<>
           <p className="">Dina Stats</p>
-          <p className="gap-1"> Ohl  {ohldb}  Cider  {ciderdb}  Sprit  {spritdb}</p>
-          <p className="gap-1">Ka$$a Ohl  {ohl}  Cider  {cider}  Sprit  {sprit}</p>
+          <p className="gap-1 w-56"> Ohl  {ohldb}  Cider  {ciderdb}  Sprit  {spritdb}</p>
+          <p className="gap-1 w-56">Ka$$a Ohl  {ohl}  Cider  {cider}  Sprit  {sprit}</p>
         </>
         )}
       </header>
-      <div className="flex h-4/6" id="knappar">
+      <div className="flex h-1/2" id="knappar">
         <div className="flex flex-col gap-8 w-1/3 h-full justify-center">
-          <Button onClick={()=> ohlcount(ohl - 1)} disabled={ohl === 0} className="px-4 w-1/3">-</Button><Button onClick={()=> cidercount(cider -1)} disabled={cider === 0} className="px-4 w-1/3">-</Button><Button onClick={()=> spritcount(sprit -1)} disabled={sprit === 0} className="px-4 w-1/3">-</Button>
+          <Button onClick={()=> ohlcount(ohl - 1)} disabled={ohl === 0} className="px-8 w-2/3">-</Button><Button onClick={()=> cidercount(cider -1)} disabled={cider === 0} className="px-8 w-2/3">-</Button><Button onClick={()=> spritcount(sprit -1)} disabled={sprit === 0} className="px-8 w-2/3">-</Button>
         </div>
         <div className="flex flex-col gap-8 w-1/3 h-full justify-center ">
         {/* <form className="flex flex-col justify-center w-4/6 h-full gap-8"> */}
-          <Button className="self-center px-4" >Øhl</Button>
-          <Button className="self-center px-4" >Cider</Button>
-          <Button className="self-center px-4" >Sprit</Button>
+          <Button className="self-center px-8" >Øhl</Button>
+          <Button className="self-center px-8" >Cider</Button>
+          <Button className="self-center px-8" >Sprit</Button>
         {/* </form> */}
         </div>
         <div className="flex flex-col gap-8 w-1/3 h-full justify-center">
-          <Button onClick={()=> ohlcount(ohl + 1)} className="px-4 w-1/3">+</Button><Button onClick={()=> cidercount(cider + 1)} className="px-4 w-1/3">+</Button><Button onClick={()=> spritcount(sprit +1)} className="px-4 w-1/3">+</Button>
+          <Button onClick={()=> ohlcount(ohl + 1)} className="px-8 w-2/3">+</Button><Button onClick={()=> cidercount(cider + 1)} className="px-8 w-2/3">+</Button><Button onClick={()=> spritcount(sprit +1)} className="px-8 w-2/3">+</Button>
         </div>
       </div>
       <div className="flex h-1/6 justify-center" id="subit">
-        <Button onClick={handleSubmit} className="h-3/6 w-1/3">Submit</Button>
+        <Button onClick={handleSubmit} className="h-3/6 w-1/3 leading-none">Submit</Button>
       </div>
 
     </>
