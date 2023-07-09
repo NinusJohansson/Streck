@@ -9,7 +9,7 @@ export function SideNav() {
 
   return (
     <nav className="top-0 px-2 py-4">
-      <ul className="flex flex-col items-start gap-2 whitespace-nowrap">
+      {/* <ul className="flex flex-col items-start gap-2 whitespace-nowrap">
         <li>
           <Link href="/">
             <IconHoverEffect>
@@ -31,7 +31,7 @@ export function SideNav() {
               </IconHoverEffect>
             </Link>
           </li>
-        )}
+        )} */}
         {user == null ? (
           <li>
             <button onClick={() => void signIn()}>
