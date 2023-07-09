@@ -36,7 +36,7 @@ export function SideNav() {
           <li>
             <button onClick={() => void signIn()}>
               <IconHoverEffect>
-                <span className="flex-col items-center gap-4">
+                <span className="flex flex-col items-center gap-4">
                   <VscSignIn className="h-8 w-8 fill-green-700" />
                   <span className="inline text-lg text-green-700">
                     Log In
