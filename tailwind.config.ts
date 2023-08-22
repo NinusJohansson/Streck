@@ -9,12 +9,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-animated')
+  ],
 } satisfies Config;
-
-// module.exports = {
-//   // ...
-//   plugins: [
-//     require('tailwindcss-animated')
-//   ],
-// }
