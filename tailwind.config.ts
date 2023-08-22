@@ -11,3 +11,10 @@ export default {
   },
   plugins: [],
 } satisfies Config;
+
+module.exports = {
+  // ...
+  plugins: [
+    require('tailwindcss-animated')
+  ],
+}
