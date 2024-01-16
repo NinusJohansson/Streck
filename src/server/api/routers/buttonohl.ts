@@ -23,6 +23,24 @@ export const buttonohlRouter = createTRPCRouter({
   })
 })
 
+export const buttontotalRouter = createTRPCRouter({
+  ciderpress: protectedProcedure
+  .input(z.number({
+  }))
+  .mutation(async ({ ctx, input }) => {
+    return ctx.prisma.user.update({
+      where: {
+        id: ctx.session?.user.id
+      },
+      data:{
+        cider: {
+          increment: input
+        }
+      }
+    });
+    })
+})
+
 export const buttonciderRouter = createTRPCRouter({
   ciderpress: protectedProcedure
   .input(z.number({
@@ -57,5 +75,5 @@ export const buttonspritRouter = createTRPCRouter({
         } 
       }
     });
-    }),
-});
+    })
+})

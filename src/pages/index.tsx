@@ -6,27 +6,31 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { SideNav } from "~/components/SideNav";
 
+import { PrismaClient } from '@prisma/client';
+import {priceList} from "../../priser";
+
 const Home: NextPage = () => {
-  
-    const stats = api.stats.getStats.useQuery()
-    const ohlbutton = api.button.ohlpress.useMutation()
-    const ciderbutton = api.ciderbutton.ciderpress.useMutation()
-    const spritbutton = api.spritbutton.spritpress.useMutation()
-    const session = useSession()
-    const user = session.data?.user
-  
-    const ohldb = stats.data?.ohl
-    const ciderdb = stats.data?.cider
-    const spritdb = stats.data?.sprit
-    const [ohl, ohlcount] = useState(0)
-    const [cider, cidercount] = useState(0)
-    const [sprit, spritcount] = useState(0)
+  const prisma = new PrismaClient();
+  const stats = api.stats.getStats.useQuery()
+  const ohlbutton = api.button.ohlpress.useMutation()
+  const ciderbutton = api.ciderbutton.ciderpress.useMutation()
+  const spritbutton = api.spritbutton.spritpress.useMutation()
+  const totalbutton = api.totalbutton.total.press.useMutation()
+  const session = useSession()
+  const user = session.data?.user
+  const ohldb = stats.data?.ohl
+  const ciderdb = stats.data?.cider
+  const spritdb = stats.data?.sprit
+  const [ohl, ohlcount] = useState(0)
+  const [cider, cidercount] = useState(0)
+  const [sprit, spritcount] = useState(0)
 
   function updatestat(): void {
     stats.refetch().then(() => {},() => {});
   }
 
   function handleSubmit(){
+    //sätter alla variabler till 0 så man inte kan ta bort streck
     if (ohl < 0){
       ohlcount(0);
     }
@@ -36,12 +40,17 @@ const Home: NextPage = () => {
     if (cider < 0){
       cidercount(0);
     }
+    //Ändrar värdet på variablen i databasen
     ohlbutton.mutate(ohl)
     ciderbutton.mutate(cider)
     spritbutton.mutate(sprit)
+    var totalprice = ohl * priceList.ohlpris + cider * priceList.ciderpris + sprit * priceList.spritpris;
+    totalbutton.mutate(totalprice)
+
     setTimeout(() => {
       updatestat()
     }, 500)
+    //reset på alla variabler
     ohlcount(0);
     cidercount(0);
     spritcount(0);
