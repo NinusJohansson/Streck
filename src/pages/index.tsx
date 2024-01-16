@@ -7,7 +7,7 @@ import { useState } from "react";
 import { SideNav } from "~/components/SideNav";
 
 import { PrismaClient } from '@prisma/client';
-import {priceList} from "../../priser";
+import {priceList} from "priser";
 
 const Home: NextPage = () => {
   const prisma = new PrismaClient();
@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   const ohlbutton = api.button.ohlpress.useMutation()
   const ciderbutton = api.ciderbutton.ciderpress.useMutation()
   const spritbutton = api.spritbutton.spritpress.useMutation()
-  const totalbutton = api.totalbutton.total.press.useMutation()
+  const totalbutton = api.totalbutton.totalpress.useMutation()
   const session = useSession()
   const user = session.data?.user
   const ohldb = stats.data?.ohl
