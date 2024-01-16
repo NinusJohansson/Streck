@@ -44,7 +44,7 @@ const Home: NextPage = () => {
     ohlbutton.mutate(ohl)
     ciderbutton.mutate(cider)
     spritbutton.mutate(sprit)
-    var totalprice = ohl * priceList.ohlpris + cider * priceList.ciderpris + sprit * priceList.spritpris;
+    var totalprice = ohl * priceList.priceList.ohlpris + cider * priceList.priceList.ciderpris + sprit * priceList.priceList.spritpris;
     totalbutton.mutate(totalprice)
 
     setTimeout(() => {
