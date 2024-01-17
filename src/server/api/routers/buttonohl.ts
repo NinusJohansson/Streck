@@ -33,8 +33,8 @@ export const buttontotalRouter = createTRPCRouter({
         id: ctx.session?.user.id
       },
       data:{
-        cider: {
-           set: input
+        total: {
+           increment: input
         }
       }
     });
