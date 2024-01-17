@@ -25,6 +25,7 @@ const Home: NextPage = () => {
   const [cider, cidercount] = useState(0)
   const [sprit, spritcount] = useState(0)
   //const [exemple,exemlecount] = useState(0)
+  const totalprice :number = ohl * priceList.priceList.ohlpris + cider * priceList.priceList.ciderpris + sprit * priceList.priceList.spritpris;
 
   function updatestat(): void {
     stats.refetch().then(() => {},() => {});
@@ -46,7 +47,6 @@ const Home: NextPage = () => {
     ohlbutton.mutate(ohl)
     ciderbutton.mutate(cider)
     spritbutton.mutate(sprit)
-    var totalprice = ohl * priceList.priceList.ohlpris + cider * priceList.priceList.ciderpris + sprit * priceList.priceList.spritpris;
     totalbutton.mutate(totalprice)
     //exemplebutton.mutate(exemple)
 
@@ -94,7 +94,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className="flex h-1/6 justify-center" id="subit">
-        <Button onClick={handleSubmit} className="h-3/6 w-1/3 leading-none">Submit</Button>
+        <Button onClick={handleSubmit} className="h-3/6 w-1/3 leading-none">Skicka in</Button>
       </div>
 
     </>
