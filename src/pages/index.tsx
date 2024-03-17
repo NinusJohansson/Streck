@@ -19,15 +19,15 @@ const Home: NextPage = () => {
   // const exeemplebutton = api.exemplebutton.exemplepress.useMutation() gå till server/api/routers/root.ts
   const session = useSession()
   const user = session.data?.user
-  const ohldb = stats.data?.ohl
-  const ciderdb = stats.data?.cider
-  const spritdb = stats.data?.sprit
+  let ohldb = stats.data?.ohl ?? 0
+  let ciderdb = stats.data?.cider ?? 0
+  let spritdb = stats.data?.sprit ?? 0
   //const exempledb = stats.data?.exemple
-  const [ohl, ohlcount] = useState(0)
-  const [cider, cidercount] = useState(0)
-  const [sprit, spritcount] = useState(0)
+  let [ohl, ohlcount] = useState(0)
+  let [cider, cidercount] = useState(0)
+  let [sprit, spritcount] = useState(0)
   //const [exemple,exemlecount] = useState(0)
-  const totalprice :number = ohl * priceList.priceList.ohlpris + ohldb * priceList.priceList.ohlpris + cider * priceList.priceList.ciderpris + ciderdb * priceList.priceList.ciderpris + sprit * priceList.priceList.spritpris + spritdb * priceList.priceList.spritpris;
+  let totalprice :number | null = ohl * priceList.priceList.ohlpris + ohldb * priceList.priceList.ohlpris + cider * priceList.priceList.ciderpris + ciderdb * priceList.priceList.ciderpris + sprit * priceList.priceList.spritpris + spritdb * priceList.priceList.spritpris;
 
   function updatestat(): void {
     stats.refetch().then(() => {},() => {});
