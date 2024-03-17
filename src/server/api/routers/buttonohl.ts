@@ -34,7 +34,7 @@ export const buttontotalRouter = createTRPCRouter({
       },
       data:{
         total: {
-           increment: input
+           set: input
         }
       }
     });

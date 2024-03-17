@@ -13,6 +13,7 @@ export const appRouter = createTRPCRouter({
   ciderbutton: buttonciderRouter,
   spritbutton: buttonspritRouter,
   totalbutton: buttontotalRouter,
+  //exemplebutton: buttonexempleRouter, glöm inte att lägga till buttonexempleRouter i importen här uppe. gå sen tillserver/api/routers/buttonohl.ts
 });
 
 // export type definition of API

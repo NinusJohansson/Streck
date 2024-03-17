@@ -34,7 +34,7 @@ export function SideNav() {
         )} */}
         {user == null ? (
           <li>
-            <button onClick={() => void signIn()}>
+            <button onClick={() => void signIn('google', { callbackUrl: 'http://localhost:3000'})}>
               <IconHoverEffect>
                 <span className="flex flex-col items-center gap-4">
                   <VscSignIn className="h-8 w-8 fill-green-700" />
