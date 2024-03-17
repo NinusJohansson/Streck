@@ -61,9 +61,11 @@ const Home: NextPage = () => {
     spritcount(0);
     // exemplecount(0);
   }
-  function handleAdmin(){
-      router.push("adminpanel");
-  }
+  //function handleAdmin(){
+  //  router.push("adminpanel");
+       // Do something after navigation is complete
+  // }
+  //}
   //Här börjar hemsidan
   return (
     <>
@@ -75,7 +77,7 @@ const Home: NextPage = () => {
           <p className="gap-1 w-56">Ka$$a Ohl  {ohl} {priceList.priceList.ciderpris}  Cider  {cider}  Sprit  {sprit}</p>
         </>
         )}
-        {user?.id == devADMIN_ID.id && (<> <Button onClick={handleAdmin} className="h-3/6 w-1/3 leading-none">admin</Button> </>)}
+        {/* {user?.id == devADMIN_ID.id && (<> <Button onClick={handleAdmin} className="h-3/6 w-1/3 leading-none">admin</Button> </>)} */}
       </header>
       <div className="flex h-1/2" id="knappar">
         <div className="flex flex-col gap-8 w-1/3 h-full justify-center"> {/* w-1/3 behöver ändars till så många produkter man har. sprit, pepsi, öl och cider hade vart w-1/4 */}
