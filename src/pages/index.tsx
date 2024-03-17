@@ -27,7 +27,7 @@ const Home: NextPage = () => {
   let [cider, cidercount] = useState(0)
   let [sprit, spritcount] = useState(0)
   //const [exemple,exemlecount] = useState(0)
-  let totalprice :number | null = ohl * priceList.priceList.ohlpris + ohldb * priceList.priceList.ohlpris + cider * priceList.priceList.ciderpris + ciderdb * priceList.priceList.ciderpris + sprit * priceList.priceList.spritpris + spritdb * priceList.priceList.spritpris;
+  let totalprice :number  = ohl * priceList.priceList.ohlpris + ohldb * priceList.priceList.ohlpris + cider * priceList.priceList.ciderpris + ciderdb * priceList.priceList.ciderpris + sprit * priceList.priceList.spritpris + spritdb * priceList.priceList.spritpris;
 
   function updatestat(): void {
     stats.refetch().then(() => {},() => {});
