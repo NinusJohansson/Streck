@@ -73,8 +73,8 @@ const Home: NextPage = () => {
       <SideNav /> {/*ohldb,ciderdb,spritdb är variabler som innehåller statsen*/}
         {user != null && (<>
           <p className="">Dina Stats</p>
-          <p className="gap-1 w-56"> Ohl  {ohldb}  {user.id} Cider  {ciderdb}  Sprit  {spritdb}</p>
-          <p className="gap-1 w-56">Ka$$a Ohl  {ohl} {priceList.priceList.ciderpris}  Cider  {cider}  Sprit  {sprit}</p>
+          <p className="gap-1 w-56"> Ohl  {ohldb} Cider  {ciderdb}  Sprit  {spritdb}</p>
+          <p className="gap-1 w-56">Ka$$a Ohl  {ohl}  Cider  {cider}  Sprit  {sprit}</p>
         </>
         )}
         {/* {user?.id == devADMIN_ID.id && (<> <Button onClick={handleAdmin} className="h-3/6 w-1/3 leading-none">admin</Button> </>)} */}
