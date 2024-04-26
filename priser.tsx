@@ -1,12 +1,8 @@
 export module priceList { 
 export const priceList ={
-ohlpris: 8,
-ciderpris: 13,
+ohlpris: 12,
+ciderpris: 15,
 spritpris: 8,
-
-guestohl: 12,
-guestcider: 15,
-guestsprit: 12,
 }
 }
 
